@@ -1,0 +1,7 @@
+Generate models from database
+npx sequelize-auto -l ts -d main --dialect sqlite -o src/lib/models/ -t f1driver -c .\sequelize-auto.json
+
+Work on database from CLI
+C:\Users\91810\Downloads\sqlite-tools-win32-x86-3430100\sqlite-tools-win32-x86-3430100\sqlite3.exe .\data\testdb.sqlite
+ - .mode csv
+ - .import data/f1_drivers_dataset.csv f1driver

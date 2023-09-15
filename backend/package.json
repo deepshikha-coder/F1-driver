@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "graphql": "^16.8.0",
+    "sequelize": "^6.33.0",
+    "sequelize-auto": "^0.8.8",
+    "sequelize-cli": "^6.6.1",
+    "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6",
+    "ts-node": "^10.9.1"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "ts-node --esm src/server.ts",
+    "lint": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "deepshikha jangid",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^20.6.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "typescript": "^5.2.2"
+  }
+}

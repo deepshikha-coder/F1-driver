@@ -1,0 +1,67 @@
+<filters></filters>
+<div class="relative shadow-md">
+  <table class="text-sm overflow-x-visible text-left text-gray-500 dark:text-gray-400">
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Driver</th>
+        <th scope="col" class="px-6 py-3">Nationality</th>
+        <th scope="col" class="px-6 py-3">Seasons</th>
+        <th scope="col" class="px-6 py-3">Championships</th>
+        <th scope="col" class="px-6 py-3">Race Entries</th>
+        <th scope="col" class="px-6 py-3">Race Starts</th>
+        <th scope="col" class="px-6 py-3">Pole Positions</th>
+        <th scope="col" class="px-6 py-3">Race Wins</th>
+        <th scope="col" class="px-6 py-3">Podiums</th>
+        <th scope="col" class="px-6 py-3">Fastest Laps</th>
+        <th scope="col" class="px-6 py-3">Points</th>
+        <th scope="col" class="px-6 py-3">Active</th>
+        <th scope="col" class="px-6 py-3">Championship Years</th>
+        <th scope="col" class="px-6 py-3">Decade</th>
+        <th scope="col" class="px-6 py-3">Pole Rate</th>
+        <th scope="col" class="px-6 py-3">Start Rate</th>
+        <th scope="col" class="px-6 py-3">Win Rate</th>
+        <th scope="col" class="px-6 py-3">Podium_Rate</th>
+        <th scope="col" class="px-6 py-3">FastLap_Rate</th>
+        <th scope="col" class="px-6 py-3">Points_Per_Entry</th>
+        <th scope="col" class="px-6 py-3">Years_Active</th>
+        <th scope="col" class="px-6 py-3">Champion</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let driver of drivers">
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <td class="px-6 py-4">{{driver.id}}</td>
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          {{driver.Driver}}
+        </th>
+        <td class="px-6 py-4">{{driver.Nationality}}</td>
+        <td class="flex flex-1 px-6 py-4">{{driver.Seasons}}</td>
+        <td class="px-6 py-4">{{driver.Championships}}</td>
+        <td class="px-6 py-4">{{driver.Race_Entries}}</td>
+        <td class="px-6 py-4">{{driver.Race_Starts}}</td>
+        <td class="px-6 py-4">{{driver.Pole_Positions}}</td>
+        <td class="px-6 py-4">{{driver.Race_Wins}}</td>
+        <td class="px-6 py-4">{{driver.Podiums}}</td>
+        <td class="px-6 py-4">{{driver.Fastest_Laps}}</td>
+        <td class="px-6 py-4">{{driver.Points}}</td>
+        <td class="px-6 py-4">{{driver.Active}}</td>
+        <td class="px-6 py-4">{{driver.ChampionshipYears}}</td>
+        <td class="px-6 py-4">{{driver.Decade}}</td>
+        <td class="px-6 py-4">{{driver.Pole_Rate}}</td>
+        <td class="px-6 py-4">{{driver.Start_Rate}}</td>
+        <td class="px-6 py-4">{{driver.Win_Rate}}</td>
+        <td class="px-6 py-4">{{driver.Podium_Rate}}</td>
+        <td class="px-6 py-4">{{driver.FastLap_Rate}}</td>
+        <td class="px-6 py-4">{{driver.Points_Per_Entry}}</td>
+        <td class="px-6 py-4">{{driver.Years_Active}}</td>
+        <td class="px-6 py-4">{{driver.Champion}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
