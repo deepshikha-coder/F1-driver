@@ -1,70 +1,55 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Apollo, gql } from 'apollo-angular';
-import { Subscription } from "rxjs";
-
-const GET_filtered_list = gql`
-query F1DriversQuery($value: String) {
-    getF1Drivers(id:$value) {
-      id
-      Active
-      Champion
-      Driver
-      Fastest_Laps
-      Nationality
-      Seasons
-      Championships
-      Race_Entries
-      Race_Starts
-      Pole_Positions
-      Race_Wins
-      Podiums
-      Points
-      ChampionshipYears
-      Decade
-      Pole_Rate
-      Start_Rate
-      Win_Rate
-      Podium_Rate
-      FastLap_Rate
-      Points_Per_Entry
-      Years_Active
-    }
-  }`;
-
-
+import { f1drivers } from "src/lib/models/f1drivers";
 @Component({
     selector: "filters",
     templateUrl: './filters.html'
 })
 export class Filter {
-    modelOpen: boolean = false
-    selectedColumnName: string = '';
-    selectedValue: string = ''
-    selectedColumnValues: string[] = [];
-    private querySubscription: Subscription = Subscription.EMPTY;
-    constructor(private apollo: Apollo) {
-    }
+    @Input() selectedKeyOptions: string[] = [];
+    @Output() filteredRows = new EventEmitter<f1drivers[]>();
+    @Output() emitSelectedKey = new EventEmitter<string>();
+    filterModelOpen: boolean = false
+    selectedKey: string = '';
+    selectedValue: string = '';
     toggleModal() {
-        this.modelOpen = !this.modelOpen;
+        this.filterModelOpen = !this.filterModelOpen;
     }
-    setKey(value: string) {
-        this.selectedColumnName = value
-
+    setSelectedKey(value: string) {
+        this.selectedKey = value
+        this.emitSelectedKey.emit(value)
     }
-    setValue(value: string) {
+    setSelectedValue(value: string) {
         this.selectedValue = value
     }
-    FilterTable() {
-        this.querySubscription = this.apollo
-      .watchQuery({
-        query: GET_filtered_list,
-        variables: {
-          value: this.selectedValue,
-        },
-      })
-      .valueChanges.subscribe(({ data }) => {
-       console.log(data)
-      });
-      console.log(this.querySubscription)
+
+    constructor(private apollo: Apollo) { }
+    async getF1Drivers() {
+        console.log('fetching f1drivers', this.selectedKey, this.selectedValue);
+        this.apollo.watchQuery({
+            variables: { driver: this.selectedValue, nationality: this.selectedValue, championships: this.selectedValue, decade: this.selectedValue, champion: this.selectedValue },
+            query: gql<{ getF1Drivers: f1drivers[] }, {}> `
+            query F1DriversQuery($driver: String, $nationality:String, $championships:String, $decade:String, $champion:String) {
+                getF1Drivers(driver: $driver, nationality: $nationality, championships: $championships, decade: $decade, champion: $champion){
+                    id
+                    Champion
+                    Driver
+                    Nationality
+                    Championships
+                    Decade
+              }
+            }`
+        }).valueChanges.subscribe((result) => {
+            console.log('results:', result.data.getF1Drivers)
+            this.filteredRows.emit(result.data.getF1Drivers)
+        })
+    }
+    applyFilter() {
+        this.toggleModal()
+        this.selectedKeyOptions = []
+        this.getF1Drivers()
+    }
+    clearFilter(){
+        window.location.reload()
     }
 }
