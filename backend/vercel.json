@@ -11,12 +11,9 @@
             }
         }
     ],
-    "rewrites": [
-        { "source": "/(.*)", "destination": "dist/src/server.js" }
-    ],
     "headers": [
         {
-          "source": "/dist/src/server.js",
+          "source": "/",
           "headers": [
             { "key": "Access-Control-Allow-Origin", "value": "*" },
             { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
