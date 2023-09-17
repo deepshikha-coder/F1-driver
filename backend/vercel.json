@@ -16,5 +16,11 @@
             "source": "/(.*)",
             "destination": "dist/src/server.js"
         }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "dist/src/server.js"
+        }
     ]
 }
