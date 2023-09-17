@@ -10,8 +10,7 @@
     "storage": "data/testdb.sqlite"
   },
   "production": {
-    "dialect": "sqlite",
-    "database": "main",
-    "storage": "data/testdb.sqlite"
+    "dialect": "postgres",
+    "use_env_variable": "POSTGRES_URL_NON_POOLING"
   }
 }

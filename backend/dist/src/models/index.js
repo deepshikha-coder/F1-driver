@@ -2,7 +2,6 @@ import { Sequelize } from 'sequelize';
 import process from 'process';
 import configs from '../../config/config.json' assert { type: "json" };
 import { initModels } from './init-models.js';
-import { sqlVersion } from './test.cjs';
 const env = process.env.NODE_ENV || 'development';
 const config = configs[env];
 let sequelize;
@@ -12,5 +11,4 @@ if (config.use_env_variable) {
 else {
     sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
-sqlVersion();
 export const sequelizeModels = initModels(sequelize);
