@@ -16,11 +16,5 @@
             "source": "/(.*)",
             "destination": "/api"
         }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "dist/src/server.js"
-        }
     ]
 }
