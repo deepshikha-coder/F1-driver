@@ -2,19 +2,16 @@
   "development": {
     "dialect": "sqlite",
     "database": "main",
-    "storage": "data/testdb.sqlite",
-    "dialectModule": "sqlite3"
+    "storage": "data/testdb.sqlite"
   },
   "test": {
     "dialect": "sqlite",
     "database": "main",
-    "storage": "data/testdb.sqlite",
-    "dialectModule": "sqlite3"
+    "storage": "data/testdb.sqlite"
   },
   "production": {
     "dialect": "sqlite",
     "database": "main",
-    "storage": "data/testdb.sqlite",
-    "dialectModule": "sqlite3"
+    "storage": "data/testdb.sqlite"
   }
 }

@@ -11,7 +11,7 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "build": "tsc",
     "start": "ts-node --esm src/server.ts",
     "lint": "",
     "test": "echo \"Error: no test specified\" && exit 1",
