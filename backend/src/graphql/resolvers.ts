@@ -4,7 +4,6 @@ import { sequelizeModels } from '../models/index.js'
 export const Query = {
     getF1Drivers: (parent, { driver, nationality, championships, decade, champion }: { driver: string | null, nationality: string | null, championships: string | null, decade: string | null, champion: string | null }) => {
         if (driver || nationality || championships || decade || champion) {
-            console.log(driver)
             const result =  sequelizeModels.f1drivers.findAll({
                 where: {
                     [Op.or]: [
@@ -17,9 +16,7 @@ export const Query = {
                 }
             })
             return result;
-            console.log(result)
         }
-        console.log(driver)
         return sequelizeModels.f1drivers.findAll()
     }
 }

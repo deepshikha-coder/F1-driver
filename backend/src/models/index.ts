@@ -2,6 +2,7 @@ import {Sequelize} from 'sequelize'
 import process from 'process'
 import {configs} from '../../config/config.js'
 import { initModels } from './init-models.js'
+import pg from 'pg';
 
 const env = process.env.NODE_ENV || 'development';
 const config = configs[env];
