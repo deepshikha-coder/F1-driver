@@ -1,19 +1,20 @@
 {
     "development": {
-        "dialect": "sqlite",
-        "database": "main",
-        "storage": "data/testdb.sqlite"
+      "dialect": "sqlite",
+      "database": "main",
+      "storage": "data/testdb.sqlite",
+      "dialectModule": "sqlite3"
     },
     "test": {
-        "username": "root",
-        "password": null,
-        "database": "database_test",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
+      "dialect": "sqlite",
+      "database": "main",
+      "storage": "data/testdb.sqlite",
+      "dialectModule": "sqlite3"
     },
     "production": {
-        "dialect": "sqlite",
-        "database": "main",
-        "storage": "dist/data/testdb.sqlite"
+      "dialect": "sqlite",
+      "database": "main",
+      "storage": "data/testdb.sqlite",
+      "dialectModule": "sqlite3"
     }
-}
+  }
