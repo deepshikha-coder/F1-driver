@@ -21,6 +21,7 @@
     "types": [
       "node"
     ],
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowJs": true,
   }
 }

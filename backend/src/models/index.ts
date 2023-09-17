@@ -3,7 +3,7 @@ import process from 'process'
 import {configs} from '../../config/config.js'
 import { initModels } from './init-models.js'
 
-const pg = require('pg');
+import pg from "./test.cjs"
 console.log(pg)
 
 const env = process.env.NODE_ENV || 'development';
