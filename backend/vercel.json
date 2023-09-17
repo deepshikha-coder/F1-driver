@@ -4,13 +4,23 @@
         {
             "src": "dist/src/server.js",
             "use": "@vercel/node",
-            "config": { "includeFiles": ["dist/**"] }
+            "config": {
+                "includeFiles": [
+                    "dist/**"
+                ]
+            }
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
             "dest": "dist/src/server.js"
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "dist/src/server.js"
         }
     ]
 }
