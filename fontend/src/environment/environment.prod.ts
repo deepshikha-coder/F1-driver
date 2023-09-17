@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    serverhost: 'http://localhost:4000'
+    serverhost: 'https://f1-driver-backend.vercel.app'
   };
