@@ -13,8 +13,8 @@
     ],
     "rewrites": [
         {
-            "src": "/(.*)",
-            "dest": "dist/src/server.js"
+            "source": "/(.*)",
+            "destination": "dist/src/server.js"
         }
     ]
 }
