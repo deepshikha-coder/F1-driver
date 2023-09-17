@@ -11,6 +11,6 @@ export const configs = {
   },
   "production": {
     "dialect": "postgres",
-    "use_env_variable": "POSTGRES_URL_NON_POOLING"
+    "use_env_variable": "POSTGRES_URL"
   }
 }
