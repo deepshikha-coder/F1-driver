@@ -28,7 +28,7 @@ await server.start();
 
 app.use(
   '/',
-  cors<cors.CorsRequest>({ origin: ['https://f1-driver.vercel.app'] }),
+  cors<cors.CorsRequest>({ origin: ['https://f1-driver.vercel.app', 'https://f1-driver-backend.vercel.app'] }),
   // 50mb is the limit that `startStandaloneServer` uses, but you may configure this to suit your needs
   bodyParser.json({ limit: '50mb' }),
   // expressMiddleware accepts the same arguments:
@@ -44,4 +44,4 @@ app.use(
 //  3. prepares your app to handle incoming requests
 const port = Number.parseInt(process.env.PORT) || 4000
 console.log(port)
-await new Promise<void>((resolve) => httpServer.listen({ port: 4000 }, resolve));
+await new Promise<void>((resolve) => httpServer.listen({ port: port }, resolve));
