@@ -1,5 +1,5 @@
 import { ApolloServer } from '@apollo/server';
-import * as resolvers from './graphql/resolvers.js'
+import * as resolvers from '../src/graphql/resolvers.js'
 import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -12,7 +12,7 @@ import { expressMiddleware } from '@apollo/server/express4';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const typeDefs = readFileSync(path.join(__dirname, 'graphql/typedefs.graphql'), { encoding: 'utf-8' });
+const typeDefs = readFileSync(path.join(__dirname, '../src/graphql/typedefs.graphql'), { encoding: 'utf-8' });
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -38,4 +38,4 @@ app.use(
   }),
 );
 
-await new Promise<void>(() => httpServer.listen(4000, () => {console.log('Server Started')}));
+export default httpServer;

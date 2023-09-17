@@ -1,25 +1,9 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "dist/src/server.js",
-            "use": "@vercel/node",
-            "config": {
-                "includeFiles": [
-                    "dist/**"
-                ]
-            }
-        }
-    ],
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/dist/src/server.js"
-        }
-    ],
+    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }],
     "headers": [
         {
-            "source": "/",
+            "source": "/api",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Origin",

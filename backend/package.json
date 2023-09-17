@@ -1,23 +1,9 @@
 {
-  "dependencies": {
-    "@apollo/server": "^4.9.3",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "graphql": "^16.8.0",
-    "pg": "^8.11.3",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.33.0",
-    "sequelize-auto": "^0.8.8",
-    "sequelize-cli": "^6.6.1",
-    "sqlite3": "^5.1.6",
-    "ts-node": "^10.9.1"
-  },
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node --esm src/server.ts",
+    "start": "ts-node --esm dev.ts",
     "lint": "",
     "test": "echo \"Error: no test specified\" && exit 1",
     "add-build": "git add dist",
@@ -32,7 +18,22 @@
   "license": "ISC",
   "description": "",
   "type": "module",
+  "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "graphql": "^16.8.0",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.33.0",
+    "sequelize-auto": "^0.8.8",
+    "sequelize-cli": "^6.6.1",
+    "sqlite3": "^5.1.6",
+    "ts-node": "^10.9.1"
+  },
   "devDependencies": {
+    "@types/cors": "^2.8.14",
     "@types/node": "^20.6.0",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
