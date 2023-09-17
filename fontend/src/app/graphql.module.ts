@@ -7,9 +7,8 @@ import { environment } from '../environment/environment';
 const uri = environment.serverhost; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
-    link: httpLink.create({ uri }),
+  link: httpLink.create({ uri }),
     cache: new InMemoryCache(),
-    
   };
 }
 

@@ -30,10 +30,4 @@ bodyParser.json({ limit: '50mb' }),
 expressMiddleware(server, {
     context: async ({ req }) => ({ token: req.headers.token }),
 }));
-// Passing an ApolloServer instance to the `startStandaloneServer` function:
-//  1. creates an Express app
-//  2. installs your ApolloServer instance as middleware
-//  3. prepares your app to handle incoming requests
-const port = Number.parseInt(process.env.PORT) || 4000;
-console.log(port);
-await new Promise((resolve) => httpServer.listen({ port: port }, resolve));
+await new Promise(() => httpServer.listen(4000, () => { console.log('Server Started'); }));

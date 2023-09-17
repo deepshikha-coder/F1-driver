@@ -4,7 +4,7 @@ import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
-import http from 'http';
+import http, { Server } from 'http';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
 import cors from 'cors';
 import bodyParser from 'body-parser';
@@ -38,10 +38,4 @@ app.use(
   }),
 );
 
-// Passing an ApolloServer instance to the `startStandaloneServer` function:
-//  1. creates an Express app
-//  2. installs your ApolloServer instance as middleware
-//  3. prepares your app to handle incoming requests
-const port = Number.parseInt(process.env.PORT) || 4000
-console.log(port)
-await new Promise<void>((resolve) => httpServer.listen({ port: port }, resolve));
+await new Promise<void>(() => httpServer.listen(4000, () => {console.log('Server Started')}));
