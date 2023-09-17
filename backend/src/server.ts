@@ -2,8 +2,12 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import * as resolvers from './graphql/resolvers.js'
 import { readFileSync } from 'fs';
+import  path  from 'path';
+import { fileURLToPath } from 'url';
 
-const typeDefs = readFileSync('src/graphql/typedefs.graphql', { encoding: 'utf-8' });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const typeDefs = readFileSync(path.join(__dirname,'graphql/typedefs.graphql'), { encoding: 'utf-8' });
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({
