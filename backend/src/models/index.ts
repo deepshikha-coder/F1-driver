@@ -2,8 +2,8 @@ import {Sequelize} from 'sequelize'
 import process from 'process'
 import {configs} from '../../config/config.js'
 import { initModels } from './init-models.js'
-import pg from './test.cjs'
 
+const pg = require('pg');
 console.log(pg)
 
 const env = process.env.NODE_ENV || 'development';
