@@ -12,11 +12,18 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc",
+    "build": "rimraf dist && tsc",
     "start": "ts-node --esm src/server.ts",
     "lint": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add-build": "git add dist",
+    "ts.check": "tsc --project tsconfig.json"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "author": "deepshikha jangid",
   "license": "ISC",
   "description": "",
@@ -26,6 +33,8 @@
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "eslint": "^8.49.0",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^5.0.1",
     "typescript": "^5.2.2"
   }
 }
