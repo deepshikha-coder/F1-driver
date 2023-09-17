@@ -1,4 +1,4 @@
-{
+export const configs = {
   "development": {
     "dialect": "sqlite",
     "database": "main",

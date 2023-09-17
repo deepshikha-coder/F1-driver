@@ -1,6 +1,6 @@
 import {Sequelize} from 'sequelize'
 import process from 'process'
-import configs from '../../config/config.json' assert { type: "json" }
+import {configs} from '../../config/config.js'
 import { initModels } from './init-models.js'
 
 const env = process.env.NODE_ENV || 'development';
