@@ -11,6 +11,7 @@ export const configs = {
   },
   "production": {
     "dialect": "postgres",
-    "use_env_variable": "POSTGRES_URL"
+    "use_env_variable": "POSTGRES_URL",
+    "dialectOptions": { ssl: {} },
   }
 }
