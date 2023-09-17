@@ -27,7 +27,7 @@ export class Filter {
     async getF1Drivers() {
         console.log('fetching f1drivers', this.selectedKey, this.selectedValue);
         this.apollo.watchQuery({
-            variables: { driver: this.selectedValue, nationality: this.selectedValue, championships: this.selectedValue, decade: this.selectedValue, champion: this.selectedValue },
+            variables: { [this.selectedKey.toLocaleLowerCase()]:this.selectedValue },
             query: gql<{ getF1Drivers: f1drivers[] }, {}> `
             query F1DriversQuery($driver: String, $nationality:String, $championships:String, $decade:String, $champion:String) {
                 getF1Drivers(driver: $driver, nationality: $nationality, championships: $championships, decade: $decade, champion: $champion){

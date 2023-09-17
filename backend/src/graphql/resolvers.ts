@@ -2,7 +2,7 @@ import { Op } from 'sequelize'
 import { sequelizeModels } from '../models/index.js'
 
 export const Query = {
-    getF1Drivers: (parent, { driver, nationality, championships, decade, champion }: { driver: string, nationality: string, championships: string, decade: string, champion: string }) => {
+    getF1Drivers: (parent, { driver, nationality, championships, decade, champion }: { driver: string | null, nationality: string | null, championships: string | null, decade: string | null, champion: string | null }) => {
         if (driver || nationality || championships || decade || champion) {
             console.log(driver)
             const result =  sequelizeModels.f1drivers.findAll({

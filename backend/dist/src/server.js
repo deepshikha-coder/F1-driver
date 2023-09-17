@@ -22,7 +22,7 @@ const server = new ApolloServer({
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 await server.start();
-app.use('/', cors({ origin: ['https://f1-driver.vercel.app', 'https://f1-driver-backend.vercel.app'] }), 
+app.use('/', cors(), 
 // 50mb is the limit that `startStandaloneServer` uses, but you may configure this to suit your needs
 bodyParser.json({ limit: '50mb' }), 
 // expressMiddleware accepts the same arguments:
