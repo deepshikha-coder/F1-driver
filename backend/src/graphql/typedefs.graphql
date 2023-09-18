@@ -7,24 +7,7 @@ type F1Driver {
   id: ID
   Driver: String
   Nationality: String
-  # Seasons: String
   Championships: String
-  # Race_Entries: String
-  # Race_Starts: String
-  # Pole_Positions: String
-  # Race_Wins: String
-  # Podiums: String
-  # Fastest_Laps: String
-  # Points: String
-  # Active: String
-  # ChampionshipYears: String
   Decade: String
-  # Pole_Rate: String
-  # Start_Rate: String
-  # Win_Rate: String
-  # Podium_Rate: String
-  # FastLap_Rate: String
-  # Points_Per_Entry: String
-  # Years_Active: String
   Champion: String
 }

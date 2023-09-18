@@ -6,18 +6,22 @@ import { f1drivers } from "src/lib/models/f1drivers";
     templateUrl: './filters.html'
 })
 export class Filter {
-    @Input() selectedKeyOptions: string[] = [];
+    @Input() categorizedValue: Array<{ key: string, values: string[] }> = [];
     @Output() filteredRows = new EventEmitter<f1drivers[]>();
-    @Output() emitSelectedKey = new EventEmitter<string>();
+    selectedKeyOptions:string[] = []
     filterModelOpen: boolean = false
     selectedKey: string = '';
     selectedValue: string = '';
+
     toggleModal() {
         this.filterModelOpen = !this.filterModelOpen;
     }
     setSelectedKey(value: string) {
         this.selectedKey = value
-        this.emitSelectedKey.emit(value)
+        const valuesForKey = (this.categorizedValue.find((item) => item.key === value))?.values
+        if (valuesForKey) {
+            this.selectedKeyOptions = valuesForKey.sort((a, b) => a.localeCompare(b))
+        }
     }
     setSelectedValue(value: string) {
         this.selectedValue = value
@@ -25,7 +29,6 @@ export class Filter {
 
     constructor(private apollo: Apollo) { }
     async getF1Drivers() {
-        console.log('fetching f1drivers', this.selectedKey, this.selectedValue);
         this.apollo.watchQuery({
             variables: { [this.selectedKey.toLocaleLowerCase()]:this.selectedValue },
             query: gql<{ getF1Drivers: f1drivers[] }, {}> `
@@ -40,15 +43,14 @@ export class Filter {
               }
             }`
         }).valueChanges.subscribe((result) => {
-            console.log('results:', result.data.getF1Drivers)
             this.filteredRows.emit(result.data.getF1Drivers)
         })
     }
     applyFilter() {
         this.toggleModal()
-        this.selectedKeyOptions = []
         this.getF1Drivers()
     }
+
     clearFilter(){
         window.location.reload()
     }

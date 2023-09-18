@@ -1,7 +1,6 @@
 <filters
   (filteredRows)="setFilterData($event)"
-  (emitSelectedKey)="setKeyOption($event)"
-  [selectedKeyOptions]="optionsForSelectedKey"
+  [categorizedValue]="categorizeValues"
 />
 <div class="mx-4 shadow-md">
   <table
@@ -12,27 +11,7 @@
     >
       <tr>
         <th scope="col" class="px-6 py-3">ID</th>
-        <th scope="col" class="px-6 py-3">Driver</th>
-        <th scope="col" class="px-6 py-3">Nationality</th>
-        <th scope="col" class="px-6 py-3">Championships</th>
-        <th scope="col" class="px-6 py-3">Champion</th>
-        <th scope="col" class="px-6 py-3">Decade</th>
-        <!-- <th scope="col" class="px-6 py-3">Race Entries</th>
-        <th scope="col" class="px-6 py-3">Race Starts</th>
-        <th scope="col" class="px-6 py-3">Pole Positions</th>
-        <th scope="col" class="px-6 py-3">Race Wins</th>
-        <th scope="col" class="px-6 py-3">Podiums</th>
-        <th scope="col" class="px-6 py-3">Fastest Laps</th>
-        <th scope="col" class="px-6 py-3">Points</th>
-        <th scope="col" class="px-6 py-3">Active</th>
-        <th scope="col" class="px-6 py-3">Championship Years</th>
-        <th scope="col" class="px-6 py-3">Pole Rate</th>
-        <th scope="col" class="px-6 py-3">Start Rate</th>
-        <th scope="col" class="px-6 py-3">Win Rate</th>
-        <th scope="col" class="px-6 py-3">Podium_Rate</th>
-        <th scope="col" class="px-6 py-3">FastLap_Rate</th>
-        <th scope="col" class="px-6 py-3">Points_Per_Entry</th>
-        <th scope="col" class="px-6 py-3">Years_Active</th> -->
+        <th scope="col" class="px-6 py-3" *ngFor="let item of categorizeValues">{{item.key}}</th>
       </tr>
     </thead>
     <tbody *ngFor="let driver of drivers">
@@ -48,23 +27,6 @@
         <td class="px-6 py-4">{{driver.Championships}}</td>
         <td class="px-6 py-4">{{driver.Champion}}</td>
         <td class="px-6 py-4">{{driver.Decade}}</td>
-        <!-- <td class="flex flex-1 px-6 py-4">{{driver.Seasons}}</td>
-        <td class="px-6 py-4">{{driver.Race_Entries}}</td>
-        <td class="px-6 py-4">{{driver.Race_Starts}}</td>
-        <td class="px-6 py-4">{{driver.Pole_Positions}}</td>
-        <td class="px-6 py-4">{{driver.Race_Wins}}</td>
-        <td class="px-6 py-4">{{driver.Podiums}}</td>
-        <td class="px-6 py-4">{{driver.Fastest_Laps}}</td>
-        <td class="px-6 py-4">{{driver.Points}}</td>
-        <td class="px-6 py-4">{{driver.Active}}</td>
-        <td class="px-6 py-4">{{driver.ChampionshipYears}}</td>
-        <td class="px-6 py-4">{{driver.Pole_Rate}}</td>
-        <td class="px-6 py-4">{{driver.Start_Rate}}</td>
-        <td class="px-6 py-4">{{driver.Win_Rate}}</td>
-        <td class="px-6 py-4">{{driver.Podium_Rate}}</td>
-        <td class="px-6 py-4">{{driver.FastLap_Rate}}</td>
-        <td class="px-6 py-4">{{driver.Points_Per_Entry}}</td>
-        <td class="px-6 py-4">{{driver.Years_Active}}</td> -->
       </tr>
     </tbody>
   </table>

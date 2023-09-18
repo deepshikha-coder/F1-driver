@@ -9,7 +9,7 @@
     </button>
     <h5
       *ngIf="selectedValue"
-      class=" text-white border mx-4 my-1 p-2 h-fit border-slate-400 rounded-md text-center"
+      class="text-white border mx-4 my-1 p-2 h-fit border-slate-400 rounded-md text-center"
     >
       {{selectedKey}} : {{selectedValue}}
     </h5>
@@ -65,21 +65,19 @@
         <!-- Modal body -->
         <div class="flex justify-around h-fit">
           <select
-            #key
+            #Selectedkey
             class="m-2 w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            (change)="setSelectedKey(key.value)"
+            (change)="setSelectedKey(Selectedkey.value)"
           >
             <option class="px-6 py-3">select key...</option>
-            <option class="px-6 py-3">Driver</option>
-            <option class="px-6 py-3">Nationality</option>
-            <option class="px-6 py-3">Championships</option>
-            <option class="px-6 py-3">Decade</option>
-            <option class="px-6 py-3">Champion</option>
+            <option class="px-6 py-3" *ngFor="let item of categorizedValue">
+              {{item.key}}
+            </option>
           </select>
           <select
-            #value
+            #SelectedValue
             class="m-2 w-1/2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            (change)="setSelectedValue(value.value)"
+            (change)="setSelectedValue(SelectedValue.value)"
           >
             <option>select value...</option>
             <option *ngFor="let value of selectedKeyOptions">{{value}}</option>
