@@ -48,6 +48,7 @@ export class Filter {
     }
     applyFilter() {
         this.toggleModal()
+        this.selectedKeyOptions = []
         this.getF1Drivers()
     }
 
